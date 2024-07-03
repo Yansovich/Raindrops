@@ -1,0 +1,73 @@
+.btn {
+    text-align: center;
+    font-size: 2rem;
+    border-radius: 5px;
+    border: 1px solid #8f35b5;
+    color: #07207b;
+
+    &:active{
+        transform: scale(0.9);
+        transition-duration: 0.1s;
+    }
+
+    &:hover {
+        cursor: pointer;
+        border: 1px solid #ff59a3;
+        background-color: #ff59a3;
+        transition-duration: 0.4s;
+    }
+
+    &_clear:hover {
+        border: 1px solid #3fcbff;
+        background-color: #3fcbff;
+    }
+
+    &_backspace:hover {
+        border: 1px solid #3fcbff;
+        background-color: #3fcbff;
+    }
+
+    &_enter:hover {
+        border: 1px solid #8f35b5;
+        background-color: #8f35b5;
+    }
+    &-num-1 {
+        grid-area: 1 / 1 / 2 / 2;
+    }
+    &-num-2 {
+        grid-area: 1 / 2 / 2 / 3;
+    }
+    &-num-3 {
+        grid-area: 1 / 3 / 2 / 4;
+    }
+    &_clear {
+        grid-area: 1 / 4 / 3 / 5;
+    }
+    &-num-4 {
+        grid-area: 2 / 1 / 3 / 2;
+    }
+    &-num-5 {
+        grid-area: 2 / 2 / 3 / 3;
+    }
+    &-num-6 {
+        grid-area: 2 / 3 / 3 / 4;
+    }
+    &-num-7 {
+        grid-area: 3 / 1 / 4 / 2;
+    }
+    &-num-8 {
+        grid-area: 3 / 2 / 4 / 3;
+    }
+    &-num-9 {
+        grid-area: 3 / 3 / 4 / 4;
+    }
+    &_enter {
+        grid-area: 3 / 4 / 5 / 5;
+    }
+    &-num-0 {
+        grid-area: 4 / 1 / 5 / 2;
+    }
+    &_backspace{
+        grid-area: 4 / 2 / 5 / 4;
+    }
+}

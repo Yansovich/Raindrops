@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Coming+Soon&display=swap');
+@import "./calc";
+@import "./calcBtn";
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-family: "Coming Soon", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2rem;
+    height: 100vh;
+}
+
+.container {
+    height: 100%;
+    display: flex;
+
+    &-game {
+       width: 70%; 
+       
+       .field-game {
+            height: 100%;
+            background: linear-gradient(360deg, #ff59a3,#c882ff,#3fcbff);
+            position: relative;
+       }
+
+       .field-wave {
+            height: 150px;
+            width: 70%;
+            background: linear-gradient(180deg, #8f35b5,#542c9a,#07207b);
+            z-index: 10;
+            position: absolute;
+            bottom: 0;
+        }
+    }
+
+    &-calc {
+        width: 30%;  
+        background: linear-gradient(360deg, #d3e46c,#e1ed94,#eff6ba);
+     }
+}

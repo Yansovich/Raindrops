@@ -3,9 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/style.min.css">
+    <title>Raindrops</title>
 </head>
+
 <body>
-    
+    <div class="container">
+        <div class="container-game">
+            <div class="field-game"></div>
+            <div class="field-wave"></div>
+        </div>
+        
+        <div class="container-calc">
+            <h1>Score: <span class="result-value">...</span></h1>
+            
+            <div class="calc">
+                <div class="calc__screen-container">
+                    <input class="calc__screen" type="text" maxlength="15" placeholder="0">
+                </div>
+
+                <div class="calc__btn-container">
+                    <button id="clear" class="btn btn_clear">Clear</button>
+                    <button id="enter" class="btn btn_enter">Enter</button>
+                    <button id="backspace" class="btn btn_backspace">Backspace</button>
+                    <button class="btn btn-num-1 digit">1</button>
+                    <button class="btn btn-num-2 digit">2</button>
+                    <button class="btn btn-num-3 digit">3</button>
+                    <button class="btn btn-num-4 digit">4</button>
+                    <button class="btn btn-num-5 digit">5</button>
+                    <button class="btn btn-num-6 digit">6</button>
+                    <button class="btn btn-num-7 digit">7</button>
+                    <button class="btn btn-num-8 digit">8</button>
+                    <button class="btn btn-num-9 digit">9</button>
+                    <button class="btn btn-num-0 digit">0</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="main.js"></script>
 </body>
 </html>
