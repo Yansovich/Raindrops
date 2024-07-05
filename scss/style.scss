@@ -41,10 +41,35 @@ body {
             position: absolute;
             bottom: 0;
         }
+
+        .btn-start {
+            height: 100px;
+            width: 200px;
+            font-size: 3rem;
+            font-weight: 700;
+            border-radius: 10px;
+            border: 1px solid #8f35b5;
+            color: #07207b;
+            position: absolute;
+            top: 45%;
+            left: 30%;
+            background: linear-gradient(360deg, #d3e46c,#e1ed94,#eff6ba);
+        }
     }
 
     &-calc {
         width: 30%;  
         background: linear-gradient(360deg, #d3e46c,#e1ed94,#eff6ba);
      }
+
+     .drop {
+        width: 100px;
+        height: 100px;
+        margin: 0 50px 20px 0;
+        background: linear-gradient(90deg, #70d2ff,#33beff,#3fcbff);
+        border-radius: 0 100% 100% 100%;
+        transform: rotateZ(45deg);
+        position: absolute;
+        top: 45%;
+        }
 }
