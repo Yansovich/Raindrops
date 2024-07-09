@@ -1,0 +1,25 @@
+.btn-start {
+    height: 100px;
+    width: 200px;
+    font-size: $title-large;
+    font-weight: 700;
+    border-radius: 10px;
+    border: 1px solid $border-color-violet;
+    color: $text-color-blue;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-145%, 0);
+    background: linear-gradient(360deg, #d3e46c,#e1ed94,#eff6ba);
+
+    @include respond-to('middle') {
+        font-size: $title-middle;
+        max-width: 165px;
+        height: 65px;
+    }
+    @include respond-to('mobile') {
+        font-size: $title-mobile;
+        max-width: 80px;
+        height: 60px;
+    }
+}

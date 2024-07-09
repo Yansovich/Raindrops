@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Coming+Soon&display=swap');
-@import "./calc";
-@import "./calcBtn";
+@import "./mixin/adaptive";
+@import "./constants/global-variable";
+@import "./constants/font-size";
+@import "./components/calc";
+@import "./components/calcBtn";
+@import "./components/btn-start";
 
 * {
     padding: 0;
@@ -41,20 +45,6 @@ body {
             position: absolute;
             bottom: 0;
         }
-
-        .btn-start {
-            height: 100px;
-            width: 200px;
-            font-size: 3rem;
-            font-weight: 700;
-            border-radius: 10px;
-            border: 1px solid #8f35b5;
-            color: #07207b;
-            position: absolute;
-            top: 45%;
-            left: 30%;
-            background: linear-gradient(360deg, #d3e46c,#e1ed94,#eff6ba);
-        }
     }
 
     &-calc {
@@ -73,3 +63,17 @@ body {
         top: 45%;
         }
 }
+
+.timer {
+    width: 100px;
+    height: 50px;
+    color: $text-color-blue;
+    border: 1px solid $border-color-violet;
+    border-radius: 5px;
+    box-shadow: 0 0 15px $border-color-violet;
+    position: absolute;
+    bottom: 20%;
+    text-align: center;
+    font-size: $title-large;
+}
+

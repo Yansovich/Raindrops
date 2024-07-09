@@ -1,10 +1,10 @@
 .btn {
     text-align: center;
     font-family: inherit;
-    font-size: 2rem;
+    font-size: $text-large;
     border-radius: 5px;
-    border: 1px solid #8f35b5;
-    color: #07207b;
+    border: 1px solid $border-color-violet;
+    color: $text-color-blue;
 
     &:active{
         transform: scale(0.9);
@@ -13,24 +13,24 @@
 
     &:hover {
         cursor: pointer;
-        border: 1px solid #ff59a3;
-        background-color: #ff59a3;
+        border: 1px solid $border-color-pink;
+        background-color: $bg-color-pink;
         transition-duration: 0.4s;
     }
 
     &_clear:hover {
-        border: 1px solid #3fcbff;
-        background-color: #3fcbff;
+        border: 1px solid $border-color-blue;
+        background-color: $bg-color-blue;
     }
 
     &_backspace:hover {
-        border: 1px solid #3fcbff;
-        background-color: #3fcbff;
+        border: 1px solid $border-color-blue;
+        background-color: $bg-color-blue;
     }
 
     &_enter:hover {
-        border: 1px solid #8f35b5;
-        background-color: #8f35b5;
+        border: 1px solid $border-color-btnEnter;
+        background-color: $bg-color-btnEnter;
     }
     &-num-1 {
         grid-area: 1 / 1 / 2 / 2;
@@ -70,5 +70,12 @@
     }
     &_backspace{
         grid-area: 4 / 2 / 5 / 4;
+    }
+
+    @include respond-to('middle') {
+        font-size: $text-middle;
+    }
+    @include respond-to('mobile') {
+        font-size: $text-mobile;
     }
 }
