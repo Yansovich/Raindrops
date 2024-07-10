@@ -53,14 +53,12 @@ body {
      }
 
      .drop {
-        width: 100px;
-        height: 100px;
         margin: 0 50px 20px 0;
         background: linear-gradient(90deg, #70d2ff,#33beff,#3fcbff);
         border-radius: 0 100% 100% 100%;
         transform: rotateZ(45deg);
         position: absolute;
-        top: 45%;
+        // top: 45%;
         }
 }
 

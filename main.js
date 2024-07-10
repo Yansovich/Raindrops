@@ -27,7 +27,6 @@ function enterValue () {
 
 function deleteLastymbol () {
     const str = screen.value.slice(0, -1);
-    // console.log(str)
     screen.value = str
 }
 
@@ -42,42 +41,59 @@ const fieldCalc = document.querySelector('.container-calc')
 
 let score = 0
 
-function handlerDrops(e) {
+function handlerDropsClick (e) {
     if(e.target.classList.contains('drop')) {
         score++
-        console.log('click on circle');
+        console.log('click on drop');
         e.target.remove()
         createDrops()
     }
 }
 
+fieldGame.addEventListener('click', handlerDropsClick)
+
+// создать капли
 function createDrops() {
     const drop = document.createElement('div');
     drop.classList.add('drop');
-
+    
+    const size = 100 + 'px'
+    drop.style.width = drop.style.height = size 
+    
     const {width, height} = fieldGame.getBoundingClientRect()
     console.log(width, height);
+
+    const x = getRandomIntInclusive(0, width - size)
+    const y = getRandomIntInclusive(0, height - size)
+
+    drop.style.top = y + 'px'
+    drop.style.left = x + 'px'
 
     fieldGame.append(drop);
 }
 
-btnStartGame.addEventListener('click', handlerDrops)
+function getRandomIntInclusive (min, max) {
+    const minCeiled = Math.ceil(min);
+    const maxFloored = Math.floor(max);
+    return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled); 
+}
 
 // таймер 
-
 btnStartGame.addEventListener('click', startGame)
 
 function startGame () {
     btnStartGame.style.display = "none"
     timerGame()
+    createDrops()
 }
 
 function timerGame () {
     const timer = document.createElement('div');
     timer.classList.add('timer');
-    let time = 30; 
+    let time = 10; 
     const startGameTimer  = setInterval (() => {console.log('start'),
     timer.textContent = time <=0 ? clearInterval(timer) : time--}, 1000);
     fieldCalc.append(timer);
     // timer.classList.remove('timer');
 }
+
