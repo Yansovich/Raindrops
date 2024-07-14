@@ -1,19 +1,26 @@
-const screen = document.querySelector('.calc__screen')
-const digits = document.querySelectorAll('.digit')
-const clearBtn = document.getElementById('clear')
-const enterBtn = document.getElementById('enter')
-const backspaceBtn = document.getElementById('backspace')
+// const screen = document.querySelector('.calc__screen')
+// const digits = document.querySelectorAll('.digit')
+// const clearBtn = document.getElementById('clear')
+// const enterBtn = document.getElementById('enter')
+// const backspaceBtn = document.getElementById('backspace')
 
 export class Calc {
 
-    constructor(id) {
-        this.componet = document.getElementById(id)
+    constructor(screen, digits, clearBtn, enterBtn, backspaceBtn) {
+        this.screen = screen;
+        this.digits = digits;
+        this.clearBtn = clearBtn;
+        this.enterBtn = enterBtn;
+        this.backspaceBtn = backspaceBtn;
     }
     
     getBtn () {
-     for (let i = 0; i < digits.length; i++) {
-        digits[i].addEventListener('click', function(event) {
-            screen.value += event.target.textContent;
+        // const digits = document.querySelectorAll('.digit');
+        // const screen = document.querySelector('.calc__screen');
+
+        for (let i = 0; i < digits.length; i++) {
+            digits[i].addEventListener('click', function(event) {
+                screen.value += event.target.textContent;
         })
     }
 
@@ -21,9 +28,9 @@ export class Calc {
     const b = enterBtn.addEventListener('click', enterValue);
     const с = backspaceBtn.addEventListener('click', deleteLastymbol);
 }
-  
-}
 
+}
+  
 function clearScreen () {
     screen.value = ''
 }

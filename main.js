@@ -1,7 +1,7 @@
-import { Calc } from "./srs/components/calc.js";
+// import { Calc } from "./srs/components/calc.js"
 
-const calc = new Calc('calc')
-console.log(calc);
+// const calc = new Calc ('.calc__screen', '.digit', 'clear', 'enter', 'backspace')
+// console.log(calc);
 
 const screen = document.querySelector('.calc__screen')
 const digits = document.querySelectorAll('.digit')
@@ -43,8 +43,9 @@ let score = 0
 
 function handlerDropsClick (e) {
     if(e.target.classList.contains('drop')) {
-        score++
-        console.log('click on drop');
+        score = score + 1
+        // console.log(score);
+        // console.log('click on drop');
         e.target.remove()
         createDrops()
     }
@@ -59,9 +60,11 @@ function createDrops() {
     
     const size = 100 + 'px'
     drop.style.width = drop.style.height = size 
+    const top = drop.style.top = 30 + 'px'
+    const {left, right} = drop.style.left = drop.style.right = 10 + 'px'
     
     const {width, height} = fieldGame.getBoundingClientRect()
-    console.log(width, height);
+    // console.log(width, height);
 
     const x = getRandomIntInclusive(0, width - size)
     const y = getRandomIntInclusive(0, height - size)
@@ -70,6 +73,8 @@ function createDrops() {
     drop.style.left = x + 'px'
 
     fieldGame.append(drop);
+    drop.append(containerNums);
+    generateNums()
 }
 
 function getRandomIntInclusive (min, max) {
@@ -95,5 +100,37 @@ function timerGame () {
     timer.textContent = time <=0 ? clearInterval(timer) : time--}, 1000);
     fieldCalc.append(timer);
     // timer.classList.remove('timer');
+}
+
+// вставить цифры 
+const containerNums = document.querySelector('.container-nums')
+const num1 = document.querySelector('.num1')
+const num2 = document.querySelector('.num2')
+const sign = document.querySelector('.sign')
+
+function generateNums () {
+        if(containerNums.classList.contains('num1')) {   
+            getNum()
+        }
+        if(containerNums.classList.contains('num2')) {   
+            getNum()
+        }
+        if(containerNums.classList.contains('sign')) {   
+            getSign()
+        }
+    }
+
+function getNum () {
+    const num = document.createElement('p');
+    num1.classList.add('num');
+    p.textContent = getRandomIntInclusive (1, 10)
+}
+
+function getSign () {
+    const arrSigns = ['+', '-', '/', '*']
+    const sign = document.createElement('p');
+    num1.classList.add('sign');
+    const randomItem = arrSigns[Math.floor(Math.random() * arrSigns.length)];
+    p.textContent = randomItem
 }
 
