@@ -44,33 +44,46 @@ body {
             z-index: 10;
             position: absolute;
             bottom: 0;
+
+            // animation: swell 2s forwards infinite linear;
         }
+
+    //     @keyframes swell {
+    //         0% {
+    //           transform: translateX(-50%);
+    //         }
+    //         100% {
+    //           transform: translateX(0%);
+    //         }
+    //       }
     }
 
     &-calc {
         width: 30%;  
         background: linear-gradient(360deg, #d3e46c,#e1ed94,#eff6ba);
-     }
-
-     .drop {
-        margin: 0 50px 20px 0;
-        background: linear-gradient(90deg, #70d2ff,#33beff,#3fcbff);
-        border-radius: 0 100% 100% 100%;
-        transform: rotateZ(45deg);
-        position: absolute;  
-        
-        animation: down 1s linear;
-    }
-
-    @keyframes down {
-        0% {
-        top: 10 px;
-        }
-        100% {
-        top: 500 px;
-        }
-    }    
+    }  
 }
+
+.drop {
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    background: linear-gradient(90deg, #70d2ff,#33beff,#3fcbff);
+    border-radius: 0 100% 100% 100%;
+    transform: rotateZ(45deg);
+    position: absolute;  
+    
+    animation: down 15s linear;
+}
+
+@keyframes down {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}  
 
 .timer {
     width: 100px;

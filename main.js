@@ -58,18 +58,14 @@ function createDrops() {
     const drop = document.createElement('div');
     drop.classList.add('drop');
     
-    const size = 100 + 'px'
-    drop.style.width = drop.style.height = size 
-    const top = drop.style.top = 30 + 'px'
-    const {left, right} = drop.style.left = drop.style.right = 10 + 'px'
-    
+    const size = drop.style.width = drop.style.height
+  
     const {width, height} = fieldGame.getBoundingClientRect()
-    // console.log(width, height);
 
     const x = getRandomIntInclusive(0, width - size)
-    const y = getRandomIntInclusive(0, height - size)
+    // const y = getRandomIntInclusive(0, height - size)
 
-    drop.style.top = y + 'px'
+    // drop.style.top = y + 'px'
     drop.style.left = x + 'px'
 
     fieldGame.append(drop);
@@ -110,27 +106,26 @@ const sign = document.querySelector('.sign')
 
 function generateNums () {
         if(containerNums.classList.contains('num1')) {   
-            getNum()
+            const randomNum = getRandomIntInclusive (1, 10)
+            num1.innerHTML = randomNum 
         }
         if(containerNums.classList.contains('num2')) {   
-            getNum()
+            const randomNum = getRandomIntInclusive (1, 10)
+            num2.innerHTML = randomNum 
         }
         if(containerNums.classList.contains('sign')) {   
             getSign()
         }
     }
 
-function getNum () {
-    const num = document.createElement('p');
-    num1.classList.add('num');
-    p.textContent = getRandomIntInclusive (1, 10)
-}
+// function getNum () {
+//     const randomNum = getRandomIntInclusive (1, 10)
+//     num1.innerHTML = randomNum 
+// }
 
 function getSign () {
     const arrSigns = ['+', '-', '/', '*']
-    const sign = document.createElement('p');
-    num1.classList.add('sign');
     const randomItem = arrSigns[Math.floor(Math.random() * arrSigns.length)];
-    p.textContent = randomItem
+    sign.innerHTML = randomItem 
 }
 
