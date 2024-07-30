@@ -106,7 +106,6 @@ body {
     color: $text-color-blue;
     border: 1px solid $border-color-violet;
     position: relative;
-    text-align: center;
     font-size: $title-large;
     display: none;
 
@@ -116,21 +115,18 @@ body {
         position: absolute;
         top: 0;
         border: 1px solid $border-color-violet;
+        color: $text-color-blue;
+        text-align: center;
     }
 
     .sign {
-        width: inherit;
         height: 20px; 
         position: absolute;
         top: 30px;
-        border: 1px solid $border-color-violet;
+        text-align: center;
     }
 
     .num2 {
-        width: inherit;
-        height: 30px; 
-        position: absolute;
         top: 50px;
-        border: 1px solid $border-color-violet;
     }
 }

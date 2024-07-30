@@ -1,8 +1,3 @@
-// import { Calc } from "./srs/components/calc.js"
-
-// const calc = new Calc ('.calc__screen', '.digit', 'clear', 'enter', 'backspace')
-// console.log(calc);
-
 const screen = document.querySelector('.calc__screen')
 const digits = document.querySelectorAll('.digit')
 const clearBtn = document.getElementById('clear')
@@ -12,7 +7,7 @@ const backspaceBtn = document.getElementById('backspace')
 // калькулятор
 for (let i = 0; i < digits.length; i++) {
     digits[i].addEventListener('click', function(event) {
-        screen.value += event.target.textContent;
+        screen.value += event.target.textContent; 
     })
 }
 
@@ -25,19 +20,20 @@ function enterValue () {
     clearScreen()
 }
 
-function deleteLastymbol () {
+function deleteLastSymbol () {
     const str = screen.value.slice(0, -1);
     screen.value = str
 }
 
 clearBtn.addEventListener('click', clearScreen)
 enterBtn.addEventListener('click', enterValue)
-backspaceBtn.addEventListener('click', deleteLastymbol)
+backspaceBtn.addEventListener('click', deleteLastSymbol)
 
 //капли 
 const fieldGame = document.querySelector('.field-game')
 const btnStartGame = document.querySelector('.btn-start')
 const fieldCalc = document.querySelector('.container-calc')
+const containerNums = document.getElementById('container-nums')
 
 let score = 0
 
@@ -70,9 +66,52 @@ function createDrops() {
 
     fieldGame.append(drop);
     drop.append(containerNums);
-    generateNums()
+    containerNums.style.display = 'block'
+    generateSymbols()
 }
 
+// вставить цифры 
+const num1 = document.querySelector('.num1')
+const num2 = document.querySelector('.num2')
+const sign = document.querySelector('.sign')
+
+const randonSymbols = {
+    randomNum1: '', 
+    randomNum2: '', 
+    randomSign: '', 
+}
+
+function generateSymbols () {
+    const number1 = randonSymbols.randomNum1 = getRandomNum()
+    const number2 = randonSymbols.randomNum2 = getRandomNum()
+    const signR = randonSymbols.randomSign = getRandomSign()
+    
+    num1.insertAdjacentHTML('afterBegin', number1)
+    num2.insertAdjacentHTML('afterBegin', number2)
+    sign.insertAdjacentHTML('afterBegin', signR)
+
+    // clearValue()
+}
+
+function clearValue () {
+    num1.innerHTML = ''
+    num2.innerHTML = ''
+    sign.innerHTML = ''
+}
+
+function getRandomNum () {
+    const randomNum = getRandomIntInclusive (1, 10)
+    return randomNum
+}
+
+function getRandomSign () {
+    const arrSigns = ['+', '-', '/', '*']
+    const randomItem = arrSigns[Math.floor(Math.random() * arrSigns.length)];
+    return randomItem
+}
+
+
+// рандом число
 function getRandomIntInclusive (min, max) {
     const minCeiled = Math.ceil(min);
     const maxFloored = Math.floor(max);
@@ -98,34 +137,5 @@ function timerGame () {
     // timer.classList.remove('timer');
 }
 
-// вставить цифры 
-const containerNums = document.querySelector('.container-nums')
-const num1 = document.querySelector('.num1')
-const num2 = document.querySelector('.num2')
-const sign = document.querySelector('.sign')
 
-function generateNums () {
-        if(containerNums.classList.contains('num1')) {   
-            const randomNum = getRandomIntInclusive (1, 10)
-            num1.innerHTML = randomNum 
-        }
-        if(containerNums.classList.contains('num2')) {   
-            const randomNum = getRandomIntInclusive (1, 10)
-            num2.innerHTML = randomNum 
-        }
-        if(containerNums.classList.contains('sign')) {   
-            getSign()
-        }
-    }
-
-// function getNum () {
-//     const randomNum = getRandomIntInclusive (1, 10)
-//     num1.innerHTML = randomNum 
-// }
-
-function getSign () {
-    const arrSigns = ['+', '-', '/', '*']
-    const randomItem = arrSigns[Math.floor(Math.random() * arrSigns.length)];
-    sign.innerHTML = randomItem 
-}
 
