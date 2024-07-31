@@ -40,7 +40,7 @@ let score = 0
 function handlerDropsClick (e) {
     if(e.target.classList.contains('drop')) {
         score = score + 1
-        // console.log(score);
+        console.log(score);
         // console.log('click on drop');
         e.target.remove()
         createDrops()
@@ -74,6 +74,7 @@ function createDrops() {
 const num1 = document.querySelector('.num1')
 const num2 = document.querySelector('.num2')
 const sign = document.querySelector('.sign')
+const resultValue = document.querySelector('.result-value')
 
 const randonSymbols = {
     randomNum1: '', 
@@ -85,12 +86,32 @@ function generateSymbols () {
     const number1 = randonSymbols.randomNum1 = getRandomNum()
     const number2 = randonSymbols.randomNum2 = getRandomNum()
     const signR = randonSymbols.randomSign = getRandomSign()
-    
-    num1.insertAdjacentHTML('afterBegin', number1)
-    num2.insertAdjacentHTML('afterBegin', number2)
-    sign.insertAdjacentHTML('afterBegin', signR)
 
-    // clearValue()
+    insertSymbol (number1, number2, signR)
+
+    calculateRes(number1, number2, signR)
+}
+
+function insertSymbol(a, b, c) {
+    num1.insertAdjacentHTML('afterBegin', a)
+    num2.insertAdjacentHTML('afterBegin', b)
+    sign.insertAdjacentHTML('afterBegin', c)
+}
+
+function calculateRes (n1, n2, sign) {
+    let trueResult = 0
+    if (sign === '+') {
+        trueResult = n1 + n2
+        console.log(trueResult);
+    }
+    if (sign === '-') {
+        if (n1>=n2) {
+            trueResult = n1 - n2
+            console.log(trueResult);
+        } else {
+            return false
+        }
+    }
 }
 
 function clearValue () {
@@ -105,7 +126,7 @@ function getRandomNum () {
 }
 
 function getRandomSign () {
-    const arrSigns = ['+', '-', '/', '*']
+    const arrSigns = ['+', '-']
     const randomItem = arrSigns[Math.floor(Math.random() * arrSigns.length)];
     return randomItem
 }
