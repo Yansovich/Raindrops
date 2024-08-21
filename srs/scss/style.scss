@@ -32,6 +32,7 @@ body {
 
     &-game {
        width: 70%; 
+       overflow: hidden;
        
        .field-game {
             height: 100%;
@@ -89,6 +90,7 @@ body {
 .drop {
     width: 100px;
     height: 100px;
+    top: -30px;
     margin: 20px;
     background: linear-gradient(90deg, #70d2ff,#33beff,#3fcbff);
     border-radius: 0 100% 100% 100%;
@@ -118,37 +120,4 @@ body {
     bottom: 20%;
     text-align: center;
     font-size: $title-large;
-}
-
-// цифры 
-
-.container-nums {
-    width: 80px;
-    height: 80px;
-    color: $text-color-blue;
-    // border: 1px solid $border-color-violet;
-    position: relative;
-    font-size: $title-large;
-    display: none;
-
-    .num1, .num2 {
-        width: inherit;
-        height: 30px; 
-        position: absolute;
-        top: 0;
-        // border: 1px solid $border-color-violet;
-        color: $text-color-blue;
-        text-align: center;
-    }
-
-    .sign {
-        height: 20px; 
-        position: absolute;
-        top: 30px;
-        text-align: center;
-    }
-
-    .num2 {
-        top: 50px;
-    }
 }

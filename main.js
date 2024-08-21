@@ -38,12 +38,16 @@ const containerNums = document.getElementById('container-nums')
 let score = 0
 
 function handlerDropsClick (e) {
+    createDrops()
     if(e.target.classList.contains('drop')) {
         score = score + 1
         console.log(score);
-        // console.log('click on drop');
-        e.target.remove()
+        console.log('click on drop');
+        // e.target.remove()
         createDrops()
+    }
+    if (drop.result === screen.value) {
+        console.log(drop.result);
     }
 }
 
@@ -53,84 +57,41 @@ fieldGame.addEventListener('click', handlerDropsClick)
 function createDrops() {
     const drop = document.createElement('div');
     drop.classList.add('drop');
+    const firstNum = document.createElement('div');
+    const secondNum = document.createElement('div');
+    const operation = document.createElement('div');
+
+    firstNum.innerText = getRandomIntInclusive (1, 10)
+    secondNum.innerText = getRandomIntInclusive (1, 10)
+    operation.innerText = getRandomSign()
     
-    const size = drop.style.width = drop.style.height
-  
-    const {width, height} = fieldGame.getBoundingClientRect()
+    const result = +firstNum.innerText + +secondNum.innerText  // доделать 
+    drop.result = result
+    console.log(result);
 
-    const x = getRandomIntInclusive(0, width - size)
-    // const y = getRandomIntInclusive(0, height - size)
+    drop.appendChild(firstNum)
+    drop.appendChild(operation)
+    drop.appendChild(secondNum)
 
-    // drop.style.top = y + 'px'
-    drop.style.left = x + 'px'
-
-    fieldGame.append(drop);
-    drop.append(containerNums);
-    containerNums.style.display = 'block'
-    generateSymbols()
+    return drop
 }
 
-// вставить цифры 
-const num1 = document.querySelector('.num1')
-const num2 = document.querySelector('.num2')
-const sign = document.querySelector('.sign')
-const resultValue = document.querySelector('.result-value')
-
-const randonSymbols = {
-    randomNum1: '', 
-    randomNum2: '', 
-    randomSign: '', 
+// вставить капли
+function insertDrops () {
+    const drop = createDrops()
+    fieldGame.appendChild(drop)
+    const dropWidth = drop.offsetWidth
+    const areaWidth = fieldGame.offsetWidth
+    const maxLeftPosition  = parseInt(100 - dropWidth / areaWidth * 100)
+    drop.style.left = getRandomIntInclusive(0, maxLeftPosition) + '%'
 }
 
-function generateSymbols () {
-    const number1 = randonSymbols.randomNum1 = getRandomNum()
-    const number2 = randonSymbols.randomNum2 = getRandomNum()
-    const signR = randonSymbols.randomSign = getRandomSign()
-
-    insertSymbol (number1, number2, signR)
-
-    calculateRes(number1, number2, signR)
-}
-
-function insertSymbol(a, b, c) {
-    num1.insertAdjacentHTML('afterBegin', a)
-    num2.insertAdjacentHTML('afterBegin', b)
-    sign.insertAdjacentHTML('afterBegin', c)
-}
-
-function calculateRes (n1, n2, sign) {
-    let trueResult = 0
-    if (sign === '+') {
-        trueResult = n1 + n2
-        console.log(trueResult);
-    }
-    if (sign === '-') {
-        if (n1>=n2) {
-            trueResult = n1 - n2
-            console.log(trueResult);
-        } else {
-            return false
-        }
-    }
-}
-
-function clearValue () {
-    num1.innerHTML = ''
-    num2.innerHTML = ''
-    sign.innerHTML = ''
-}
-
-function getRandomNum () {
-    const randomNum = getRandomIntInclusive (1, 10)
-    return randomNum
-}
-
+// рандом знак
 function getRandomSign () {
     const arrSigns = ['+', '-']
     const randomItem = arrSigns[Math.floor(Math.random() * arrSigns.length)];
     return randomItem
 }
-
 
 // рандом число
 function getRandomIntInclusive (min, max) {
@@ -142,10 +103,12 @@ function getRandomIntInclusive (min, max) {
 // таймер 
 btnStartGame.addEventListener('click', startGame)
 
+// го
 function startGame () {
     btnStartGame.style.display = "none"
-    timerGame()
+    // timerGame()
     createDrops()
+    insertDrops()
 }
 
 function timerGame () {
