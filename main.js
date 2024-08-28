@@ -3,6 +3,7 @@ const digits = document.querySelectorAll('.digit')
 const clearBtn = document.getElementById('clear')
 const enterBtn = document.getElementById('enter')
 const backspaceBtn = document.getElementById('backspace')
+const scoreGame = document.querySelector('.result-value')
 
 // калькулятор
 for (let i = 0; i < digits.length; i++) {
@@ -13,32 +14,16 @@ for (let i = 0; i < digits.length; i++) {
 
 let result = ''
 let score = 0
+const drop = document.createElement('div');
+const arrSigns = ['+', '-']
 
 function clearScreen () {
     screen.value = ''
 }
 
 function enterValue () {
-    console.log(screen.value);
-
-    const drop = document.createElement('div');
-    fieldGame.appendChild(drop)
-
-    console.log(drop);
-    
-    drop.result = result  
-    console.log(result);
-    
-    if (+result === +screen.value) {
-        console.log('YYYYYYYYYY');
-        drop.remove()
-        winSound()
-        
-    } else {
-        console.log('AAAAAAAAAAAAAAAAAAA');
-        mistaceSound()
-    }
-
+    // console.log(screen.value);
+    checkRightAnswer()
     clearScreen()
 }
 
@@ -57,23 +42,24 @@ const btnStartGame = document.querySelector('.btn-start')
 const fieldCalc = document.querySelector('.container-calc')
 const containerNums = document.getElementById('container-nums')
 
-const arrSigns = ['+', '-']
+function checkRightAnswer () {
 
-// function handlerDropsClick (e) {
-//     if(e.target.classList.contains('drop')) {
-//         score = score + 1
-//         console.log(score);
-//         console.log('click on drop');
-//         // e.target.remove()
-//         createDrops()
-//     }
-// }
+    drop.result = result  
+    
+    if (+result === +screen.value) {
+        score = score + 1      
+        scoreGame.textContent = score 
+        deleteDrops()
+        winSound()
 
-// fieldGame.addEventListener('click', handlerDropsClick)
+        createDrops()  /// ????    
+    } else {
+        mistakeSound()
+    }
+}
 
 // создать капли
 function createDrops() {
-    const drop = document.createElement('div');
     drop.classList.add('drop');
     const firstNum = document.createElement('div');
     const secondNum = document.createElement('div');
@@ -88,8 +74,8 @@ function createDrops() {
         break
         case '-': result = +firstNum.innerText - +secondNum.innerText 
         break
-    } 
-
+    }
+    
     drop.result = result
    
     drop.appendChild(firstNum)
@@ -101,12 +87,15 @@ function createDrops() {
 
 // вставить капли
 function insertDrops () {
-    const drop = createDrops()
     fieldGame.appendChild(drop)
     const dropWidth = drop.offsetWidth
     const areaWidth = fieldGame.offsetWidth
     const maxLeftPosition  = parseInt(100 - dropWidth / areaWidth * 100)
     drop.style.left = getRandomIntInclusive(0, maxLeftPosition) + '%'
+}
+
+function deleteDrops() {
+    drop.classList.add('hide');
 }
 
 // рандом знак
@@ -138,7 +127,7 @@ function randomExpression () {
     return (firstNum, secondNum, operator)
 }
 
-// таймер 
+// старт
 btnStartGame.addEventListener('click', startGame)
 
 // го
@@ -149,6 +138,7 @@ function startGame () {
     insertDrops()
 }
 
+// таймер
 function timerGame () {
     const timer = document.createElement('div');
     timer.classList.add('timer');
@@ -160,7 +150,7 @@ function timerGame () {
 }
 
 // музон 
-function mistaceSound () {
+function mistakeSound () {
     const audio = new Audio();
     audio.preload = 'auto';
     audio.src = './msc/mistake.mp3';
@@ -173,4 +163,3 @@ function winSound () {
     audio.src = './msc/win.mp3';
     audio.play();
 }
-
