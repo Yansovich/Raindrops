@@ -56,7 +56,7 @@ body {
                 z-index: 11;
                 position: absolute;
                 bottom: 0; 
-                animation: swell 5s infinite linear;
+                animation: swell 5s infinite linear alternate;
             }
 
                 @keyframes swell {
@@ -97,7 +97,7 @@ body {
     transform: rotateZ(45deg);
     position: absolute;  
     
-    animation: down 15s linear;
+    animation: down 20s linear;
 }
 
 .hide {

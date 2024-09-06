@@ -53,8 +53,11 @@ function checkRightAnswer () {
         winSound()
 
         createDrops()  /// ????    
+        insertDrops()
+        
     } else {
         mistakeSound()
+        growWave()
     }
 }
 
@@ -163,3 +166,29 @@ function winSound () {
     audio.src = './msc/win.mp3';
     audio.play();
 }
+
+// волна
+const firstWave = document.querySelector('.field-wave')
+const secondWave = document.querySelector('.field-wave-2')
+
+function growWave () {
+  const waveHeight = firstWave.offsetHeight
+  const newHeight = waveHeight + 10
+
+  firstWave.style.height = newHeight + 'px'
+  secondWave.style.height = newHeight + 'px'
+}
+
+function deleteHiddenDrop() {
+    const dropHeight = drop.clientHeight
+    const waveHeight = firstWave.clientHeight 
+    const fieldGameHeight = fieldGame.clientHeight - waveHeight
+    const topDrop = fieldGameHeight - dropHeight
+    
+    if(topDrop === fieldGame) {
+        deleteDrops()
+        createDrops()       // ????
+        insertDrops()
+    }
+}
+deleteHiddenDrop()
