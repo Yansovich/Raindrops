@@ -8,42 +8,70 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="container-game">
-            <div class="field-game"></div>
-            <div class="field-wave"></div>
-            <div class="field-wave-2"></div>
-            <button class="btn btn-start">Start Game!</button>
-        </div>
-        
-        <div class="container-calc">
-            <h1>Score: <span class="result-value">...</span></h1>
-            
-            <div class="calc" id="calc">
-                <div class="calc__screen-container">
-                    <input class="calc__screen" type="text" maxlength="15" placeholder="0">
+    <section class="home-page">
+        <div class="container">
+            <button class="btn-home btn-rules"> 
+                <div class="wrapper-img">
                 </div>
+                <span>How to play?</span>
+            </button>
 
-                <div class="calc__btn-container">
-                    <button id="clear" class="btn btn_clear">Clear</button>
-                    <button id="enter" class="btn btn_enter">Enter</button>
-                    <button id="backspace" class="btn btn_backspace">Backspace</button>
-                    <button class="btn btn-num-1 digit">1</button>
-                    <button class="btn btn-num-2 digit">2</button>
-                    <button class="btn btn-num-3 digit">3</button>
-                    <button class="btn btn-num-4 digit">4</button>
-                    <button class="btn btn-num-5 digit">5</button>
-                    <button class="btn btn-num-6 digit">6</button>
-                    <button class="btn btn-num-7 digit">7</button>
-                    <button class="btn btn-num-8 digit">8</button>
-                    <button class="btn btn-num-9 digit">9</button>
-                    <button class="btn btn-num-0 digit">0</button>
+            <button class="btn-home btn-start"> 
+                <div class="wrapper-img">
                 </div>
+            <span>Start Game!</span></button>
+        </div>
+    </section>
+
+    <section class="game-page">
+        <div class="container">
+            <div class="container-game">
+                <div class="field-wave"></div>
+                <div class="field-wave-2"></div>
+
+                <!-- <div class="modal"></div> -->
             </div>
-        </div>
-    </div>
+            
+            <div class="container-calc">
+                <h1>Score: <span class="result-value">...</span></h1>
+                
+                <div class="calc" id="calc">
+                    <div class="calc__screen-container">
+                        <input class="calc__screen" type="text" maxlength="15" placeholder="0">
+                    </div>
+    
+                    <div class="calc__btn-container">
+                        <button id="clear" class="btn btn_clear">Clear</button>
+                        <button id="enter" class="btn btn_enter">Enter</button>
+                        <button id="backspace" class="btn btn_backspace">Backspace</button>
+                        <button class="btn btn-num-1 digit">1</button>
+                        <button class="btn btn-num-2 digit">2</button>
+                        <button class="btn btn-num-3 digit">3</button>
+                        <button class="btn btn-num-4 digit">4</button>
+                        <button class="btn btn-num-5 digit">5</button>
+                        <button class="btn btn-num-6 digit">6</button>
+                        <button class="btn btn-num-7 digit">7</button>
+                        <button class="btn btn-num-8 digit">8</button>
+                        <button class="btn btn-num-9 digit">9</button>
+                        <button class="btn btn-num-0 digit">0</button>
+                    </div>
+                </div>
 
-    <audio src="./msc/backgroundMusic.mp3" autoplay="autoplay" loop="loop"></audio>
+            </div>
+
+        </div> 
+    </section>
+
+    <section class="final-page">
+        <div class="container">
+            <h1>Your score: <span class="result-game">...</span></h1>
+
+            <button class="btn-home btn-restart"> 
+                <div class="wrapper-img-restart">
+                </div>
+            <span>To the home page!</span></button>
+        </div>
+    </section> 
 
     <script type="module" src="main.js"></script>
 </body>

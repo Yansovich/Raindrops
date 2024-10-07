@@ -2,9 +2,9 @@
 @import "./mixin/adaptive";
 @import "./constants/global-variable";
 @import "./constants/font-size";
-@import "./components/calc";
-@import "./components/calcBtn";
-@import "./components/btn-start";
+@import "./components/home-page";
+@import "./components/game-page";
+@import "./components/final-page";
 
 * {
     padding: 0;
@@ -22,106 +22,73 @@ body {
     font-style: normal;
     font-size: 2rem;
     height: 100vh;
+    overflow: hidden;
 }
 
-.container {
-    height: 100%;
-    display: flex;
-    position: relative;
-    overflow: hidden;
+// .home-page {
+//     display: none;
+// }
 
-    &-game {
-       width: 70%; 
-       overflow: hidden;
-       
-       .field-game {
-            height: 100%;
-            background: linear-gradient(360deg, #ff59a3,#c882ff,#3fcbff);
-            position: relative;
-       }
+.game-page {
+    
+    .drop {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-size: $text-large;
+        
+        width: 100px;
+        height: 100px;
+        top: -30px;
+        margin: 20px;
+        background: linear-gradient(90deg, #70d2ff,#33beff,#3fcbff);
+        border-radius: 0 100% 100%;
+        transform: rotateZ(45deg);
+        position: absolute;  
+        
+        animation: down 20s linear;
 
-       .field-wave {
-            height: 150px;
-            width: 70%;
-            background: linear-gradient(180deg, #8f35b5,#542c9a,#07207b);
-            z-index: 10;
-            position: absolute;
-            bottom: 0; 
+        @include respond-to('middle') {
+            width: 80px;
+            height: 80px;
+            font-size: $text-middle;
+        }
 
-            &-2 {
-                height: 150px;
-                width: 70%;
-                background: linear-gradient(180deg, #8f35b5,#542c9a,#07207b);
-                opacity: 0.85;
-                z-index: 11;
-                position: absolute;
-                bottom: 0; 
-                animation: swell 5s infinite linear alternate;
-            }
-
-                @keyframes swell {
-                    0% {
-                        transform: rotate(4deg);
-                        width: 100%;
-                    }
-                    25% {
-                        transform: rotate(2deg);
-
-                    }
-                    75% {
-                        transform: rotate(-2deg);
-                    }
-                    100% {
-                        transform: rotate(-4deg);
-                        width: 100%;
-                    }
-            }
-
+        @include respond-to('mobile') {
+            width: 60px;
+            height: 60px;
+            font-size: $text-mobile;
         }
     }
-
-    &-calc {
-        width: 30%;  
-        background: linear-gradient(360deg, #d3e46c,#e1ed94,#eff6ba);
-        z-index: 12;
-    }  
-}
-
-.drop {
-    width: 100px;
-    height: 100px;
-    top: -30px;
-    margin: 20px;
-    background: linear-gradient(90deg, #70d2ff,#33beff,#3fcbff);
-    border-radius: 0 100% 100% 100%;
-    transform: rotateZ(45deg);
-    position: absolute;  
     
-    animation: down 20s linear;
-}
-
-.hide {
-    display: none;
-}
-
-@keyframes down {
-    0% {
-        transform: translateY(0);
+    .hide {
+        display: none;
     }
-    100% {
-        transform: translateY(100vh);
+    
+    .show {
+        display: block;
     }
-}  
-
-.timer {
-    width: 100px;
-    height: 50px;
-    color: $text-color-blue;
-    border: 1px solid $border-color-violet;
-    border-radius: 5px;
-    box-shadow: 0 0 15px $border-color-violet;
-    position: absolute;
-    bottom: 20%;
-    text-align: center;
-    font-size: $title-large;
+    
+    @keyframes down {
+        0% {
+            transform: translateY(0);
+        }
+        100% {
+            transform: translateY(100vh);
+        }
+    }  
+    
+    // .timer {
+    //     width: 100px;
+    //     height: 50px;
+    //     color: $text-color-blue;
+    //     border: 1px solid $border-color-violet;
+    //     border-radius: 5px;
+    //     box-shadow: 0 0 15px $border-color-violet;
+    //     position: absolute;
+    //     bottom: 20%;
+    //     text-align: center;
+    //     font-size: $title-large;
+    // }
 }

@@ -1,25 +1,63 @@
-.btn-start {
+.btn-home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 100px;
-    width: 200px;
+    width: 280px;
+    padding: 10px;
+    gap: 5px;
+    font-family: inherit;
     font-size: $title-large;
     font-weight: 700;
-    border-radius: 10px;
     border: 1px solid $border-color-violet;
+    border-radius: 20px;
     color: $text-color-blue;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-145%, 0);
     background: linear-gradient(360deg, #d3e46c,#e1ed94,#eff6ba);
 
+    &:active{
+        transform: scale(0.9);
+        transition-duration: 0.1s;
+    }
+
+    &:hover {
+        cursor: pointer;
+        border: 1px solid $border-color-pink;
+        background-color: $bg-color-pink;
+        transition-duration: 0.4s;
+    }
+
+    .wrapper-img {
+        width: 80px;
+        height: 80px;
+        // border: 1px solid black ;
+        background-image: url(../../../assets/pictures/star.png);
+        background-size: contain;   
+        background-repeat: no-repeat;   
+
+
+        @include respond-to('middle') {
+            max-width: 65px;
+            height: 65px;
+        }
+        @include respond-to('mobile') {
+            width: 35px;
+            height: 25px;
+        }
+    }
+
+    .wrapper-img:hover {
+        filter: saturate(1.5);
+    }
+
     @include respond-to('middle') {
-        font-size: $title-middle;
+        font-size: $text-middle;
         max-width: 165px;
         height: 65px;
     }
     @include respond-to('mobile') {
-        font-size: $title-mobile;
+        font-size: $text-mobile;
         max-width: 80px;
         height: 60px;
+        border-radius: 15px;
     }
 }

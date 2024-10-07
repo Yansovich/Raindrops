@@ -1,0 +1,136 @@
+@import "./calc";
+@import "./calcBtn";
+
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+
+    &-game {
+        display: flex;
+        height: 100vh;
+        width: 70%;
+        // border: 1px solid black;
+        background: linear-gradient(360deg, #ff59a3, #c882ff, #3fcbff);
+        position: relative;
+
+        @include respond-to('middle') {
+            width: 65%;
+        }
+
+        @include respond-to('mobile') {
+            width: 60%;
+        }
+
+        .field-wave {
+            height: 150px;
+            width: 100%;
+            background: linear-gradient(180deg, #8f35b5, #542c9a, #07207b);
+            z-index: 10;
+            position: absolute;
+            bottom: 0;
+
+            &-2 {
+                height: 150px;
+                width: 70%;
+                background: linear-gradient(180deg, #8f35b5, #542c9a, #07207b);
+                opacity: 0.85;
+                z-index: 11;
+                position: absolute;
+                bottom: 0;
+                animation: swell 5s infinite linear alternate;
+            }
+
+            .hide {
+                display: none;
+            }
+
+            @keyframes swell {
+                0% {
+                    transform: rotate(4deg);
+                    width: 100%;
+                }
+
+                25% {
+                    transform: rotate(2deg);
+
+                }
+
+                75% {
+                    transform: rotate(-2deg);
+                }
+
+                100% {
+                    transform: rotate(-4deg);
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+.container-calc {
+    display: flex;
+    width: 30%;
+    // border: 1px solid black;
+    background: linear-gradient(360deg, #d3e46c, #e1ed94, #eff6ba);
+    z-index: 12;
+
+    @include respond-to('middle') {
+        width: 35%;
+    }
+
+    @include respond-to('mobile') {
+        width: 40%;
+    }
+}
+
+.game-page.up {
+    margin-top: -100vh;
+}
+
+.modal {
+    // display: none;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 400px;
+    height: 200px;
+    border: $border-color-violet;
+    border-radius: 20px;
+
+    animation: fall 20s linear;
+
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(50vh);
+    }
+}
+
+
+@media (max-width: 1050px) {
+    .container-game {
+        width: 60%;
+    }
+    .container-calc {
+        width: 40%;
+    }
+}
+
+@media (max-width: 540px) {
+    .container-game {
+        width: 55%;
+    }
+    .container-calc {
+        width: 45%;
+    }
+}
