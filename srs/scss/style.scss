@@ -47,7 +47,7 @@ body {
         transform: rotateZ(45deg);
         position: absolute;  
         
-        animation: down 20s linear;
+        animation: down 100s linear;
 
         @include respond-to('middle') {
             width: 80px;

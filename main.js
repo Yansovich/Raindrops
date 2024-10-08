@@ -26,10 +26,18 @@ function clearScreen() {
 }
 
 function enterValue() {
-    // console.log(screen.value);
     checkRightAnswer()
     clearScreen()
 }
+
+// клава 
+screen.addEventListener ('keyup', function (e) {
+    let key = e.keyCode
+    if (key === 13) {
+        checkRightAnswer()
+        clearScreen()
+    }
+})
 
 function deleteLastSymbol() {
     const str = screen.value.slice(0, -1);
@@ -106,12 +114,31 @@ function showDrops() {
 let trueResult = 0;
 let wrongResult = 0;
 const resultGame = document.querySelector('.result-game')
+const correctAnsw = document.getElementById('correct-answers')
+const wrongAnsw = document.getElementById('wrong-answers')
+
+function increaseSpeed () {
+    if (+trueResult === 5) {
+        drop.style.animation = 'down 80s linear'
+    } else if (+trueResult === 10) {
+        drop.style.animation = 'down 60s linear'
+    } else if (+trueResult === 15) {
+        drop.style.animation = 'down 40s linear'
+    } else if (+trueResult === 20) {
+        drop.style.animation = 'down 20s linear'
+    } else if (+trueResult === 25) {
+        drop.style.animation = 'down 10s linear'
+    } else if (+trueResult === 30) {
+        drop.style.animation = 'down 5s linear'
+    } 
+}
 
 // проверять рез
 const sectionGame = document.querySelector('.game-page')
 
 function checkRightAnswer() {
-
+    
+    increaseSpeed ()
     drop.result = result
 
     if (+result === +screen.value) {
@@ -119,6 +146,7 @@ function checkRightAnswer() {
         trueResult = trueResult + 1;
         scoreGame.textContent = score
         resultGame.textContent = score
+
         deleteDrops()
         winSound()
 
@@ -149,6 +177,9 @@ function checkRightAnswer() {
             sectionGame.classList.add('up');
         }
     }
+    
+    correctAnsw.textContent = trueResult
+    wrongAnsw.textContent = wrongResult
 }
 
 function callModal() {
@@ -156,7 +187,6 @@ function callModal() {
     modal.classList.add('modal');
     gamePage.appendChild(modal)
     console.log(modal);
-
 }
 
 // рандом знак
@@ -212,7 +242,7 @@ const secondWave = document.querySelector('.field-wave-2')
 
 function growWave() {
     const waveHeight = firstWave.offsetHeight
-    const newHeight = waveHeight + 10
+    const newHeight = waveHeight + 25
 
     firstWave.style.height = newHeight + 'px'
     secondWave.style.height = newHeight + 'px'
@@ -230,6 +260,8 @@ function goToHomePage() {
     sectionGame.classList.remove('up');
 
 }
+
+
 
 
 

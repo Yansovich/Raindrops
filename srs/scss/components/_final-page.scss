@@ -4,14 +4,15 @@
     display: flex;
     height: 100vh;
     width: 100%;
-    background: linear-gradient(360deg, #ff59a3,#c882ff,#3fcbff);
+    background: linear-gradient(360deg, #ff59a3, #c882ff, #3fcbff);
     // z-index: 20;
     // overflow: hidden;
 
     .container {
-        width: 700px;
-        height: 300px;
-        // border: 1px solid black ;
+        width: 600px;
+        height: 500px;
+        padding: 10px;
+        // border: 1px solid black;
         margin-left: auto;
         margin-right: auto;
         margin-top: auto;
@@ -22,43 +23,104 @@
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        gap: 30px;
+        gap: 50px;
 
-    h1 {
-        color: $text-color-blue;
-        font-size: $title-large;
-        margin: 0 0 25px 0;
+        h1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            color: $text-color-blue;
+            font-size: $title-large;
+            width: max-content;
+
+            @include respond-to('middle') {
+                font-size: $title-middle;
+            }
+
+            @include respond-to('mobile') {
+                font-size: $title-mobile;
+            }
+
+            .wrapper-img-result {
+                width: 70px;
+                height: 70px;
+                // border: 1px solid black;
+                background-image: url(../../../assets/pictures/star2.png);
+                background-size: contain;
+                background-repeat: no-repeat;
+
+                @include respond-to('middle') {
+                    max-width: 40px;
+                    height: 40px;
+                }
+
+                @include respond-to('mobile') {
+                    width: 40px;
+                    height: 30px;
+                }
+            }
+
+            .wrapper-img-result:hover {
+                filter: saturate(2);
+            }
+        }
+
+        &-answers {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            @include respond-to('middle') {
+                justify-content: space-around;
+            }
+
+            @include respond-to('mobile') {
+                justify-content: space-around;
+            }
+
+            h2 {
+            gap: 15px;
+            color: $text-color-blue;
+            font-size: $title-large;
+
+            @include respond-to('middle') {
+                font-size: $text-middle;
+            }
+
+            @include respond-to('mobile') {
+                font-size: $text-mobile;
+            }
+
+            }
+        }
+    }
+
+    .wrapper-img-restart {
+        width: 80px;
+        height: 65px;
+        background-image: url(../../../assets/pictures/beach-house.png);
+        background-size: contain;
+        background-repeat: no-repeat;
 
         @include respond-to('middle') {
-            font-size: $title-middle;
+            max-width: 40px;
+            height: 40px;
         }
+
         @include respond-to('mobile') {
-            font-size: $title-mobile;
-        } 
+            width: 40px;
+            height: 20px;
+        }
     }
 
-        .wrapper-img-restart {
-            width: 80px;
-            height: 65px;
-            background-image: url(../../../assets/pictures/beach-house.png);
-            background-size: contain;   
-            background-repeat: no-repeat;  
-            
-            @include respond-to('middle') {
-                max-width: 40px;
-                height: 40px;
-            }
-            @include respond-to('mobile') {
-                width: 40px;
-                height: 20px;
-            }
-        }
-
-        .wrapper-img-restart:hover {
-            filter: saturate(2);
-        }
+    .wrapper-img-restart:hover {
+        filter: saturate(2);
     }
 }
+
+
 
 // .game-page {
 //     display: none;
