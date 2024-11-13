@@ -6,7 +6,7 @@
     border: 1px solid $border-color-violet;
     color: $text-color-blue;
 
-    &:active{
+    &:active {
         transform: scale(0.9);
         transition-duration: 0.1s;
     }
@@ -16,6 +16,7 @@
         border: 1px solid $border-color-pink;
         background-color: $bg-color-pink;
         transition-duration: 0.4s;
+        opacity: 0.85;
     }
 
     &_clear:hover {
@@ -32,50 +33,73 @@
         border: 1px solid $border-color-btnEnter;
         background-color: $bg-color-btnEnter;
     }
+
     &-num-1 {
         grid-area: 1 / 1 / 2 / 2;
     }
+
     &-num-2 {
         grid-area: 1 / 2 / 2 / 3;
     }
+
     &-num-3 {
         grid-area: 1 / 3 / 2 / 4;
     }
+
     &_clear {
         grid-area: 1 / 4 / 3 / 5;
     }
+
     &-num-4 {
         grid-area: 2 / 1 / 3 / 2;
     }
+
     &-num-5 {
         grid-area: 2 / 2 / 3 / 3;
     }
+
     &-num-6 {
         grid-area: 2 / 3 / 3 / 4;
     }
+
     &-num-7 {
         grid-area: 3 / 1 / 4 / 2;
     }
+
     &-num-8 {
         grid-area: 3 / 2 / 4 / 3;
     }
+
     &-num-9 {
         grid-area: 3 / 3 / 4 / 4;
     }
+
     &_enter {
         grid-area: 3 / 4 / 5 / 5;
     }
+
     &-num-0 {
         grid-area: 4 / 1 / 5 / 2;
     }
-    &_backspace{
+
+    &_backspace {
         grid-area: 4 / 2 / 5 / 4;
     }
 
     @include respond-to('middle') {
         font-size: $text-middle;
     }
+
     @include respond-to('mobile') {
         font-size: $text-mobile;
+    }
+}
+
+.btn_backspace {
+
+    @include respond-to('mobile') {
+       overflow: hidden;
+       text-overflow: ellipsis;
+       white-space: nowrap;
     }
 }

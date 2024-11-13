@@ -6,6 +6,7 @@
     height: 100vh;
     width: 100%;
     overflow: hidden;
+    transition: transform 0.5 ease;
 
     &-game {
         display: flex;
@@ -33,7 +34,7 @@
 
             &-2 {
                 height: 150px;
-                width: 70%;
+                width: 100%;
                 background: linear-gradient(180deg, #8f35b5, #542c9a, #07207b);
                 opacity: 0.85;
                 z-index: 11;
@@ -48,22 +49,16 @@
 
             @keyframes swell {
                 0% {
-                    transform: rotate(4deg);
-                    width: 100%;
+                    transform: skewY(4deg) translateY(0);
                 }
-
                 25% {
-                    transform: rotate(2deg);
-
+                    transform: skewY(1deg) translateY(-5px);
                 }
-
                 75% {
-                    transform: rotate(-2deg);
+                    transform: skewY(-1deg) translateY(5px);
                 }
-
                 100% {
-                    transform: rotate(-4deg);
-                    width: 100%;
+                    transform: skewY(-4deg) translateY(0);
                 }
             }
         }
@@ -74,7 +69,7 @@
     display: flex;
     width: 30%;
     // border: 1px solid black;
-    background: linear-gradient(360deg, #d3e46c, #e1ed94, #eff6ba);
+    background: linear-gradient(360deg, #a4db79,#e9ee73);
     z-index: 12;
 
     @include respond-to('middle') {
@@ -90,37 +85,11 @@
     margin-top: -100vh;
 }
 
-.modal {
-    // display: none;
-
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: auto;
-    margin-bottom: auto;
-    width: 400px;
-    height: 200px;
-    border: $border-color-violet;
-    border-radius: 20px;
-
-    animation: fall 20s linear;
-
-}
-
-@keyframes fall {
-    0% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(50vh);
-    }
-}
-
-
 @media (max-width: 1050px) {
     .container-game {
         width: 60%;
     }
+
     .container-calc {
         width: 40%;
     }
@@ -130,6 +99,7 @@
     .container-game {
         width: 55%;
     }
+
     .container-calc {
         width: 45%;
     }

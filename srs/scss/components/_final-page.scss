@@ -1,29 +1,37 @@
 @import "./btn-start";
 
 .final-page {
+    display: none;
     display: flex;
     height: 100vh;
     width: 100%;
-    background: linear-gradient(360deg, #ff59a3, #c882ff, #3fcbff);
-    // z-index: 20;
-    // overflow: hidden;
+    background: linear-gradient(360deg, #f84a98,#e454ba,#c465d9,#9375f0,#4084fe);
+    background-size: 200% 200%;
+    animation: gradient 10s ease infinite;
+    transition: transform 0.5 ease;
 
     .container {
-        width: 600px;
-        height: 500px;
+        width: 70vw;
+        height: 100%;
         padding: 10px;
         // border: 1px solid black;
         margin-left: auto;
         margin-right: auto;
-        margin-top: auto;
-        margin-bottom: auto;
         position: relative;
 
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        gap: 50px;
+        gap: 60px;
+
+        @include respond-to('middle') {
+            max-width: 400px;
+        }
+
+        @include respond-to('mobile') {
+            width: 310px;
+        }
 
         h1 {
             display: flex;
@@ -43,8 +51,8 @@
             }
 
             .wrapper-img-result {
-                width: 70px;
-                height: 70px;
+                width: 65px;
+                height: 65px;
                 // border: 1px solid black;
                 background-image: url(../../../assets/pictures/star2.png);
                 background-size: contain;
@@ -70,39 +78,37 @@
             width: 100%;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
+            gap: 10px;
 
             @include respond-to('middle') {
-                justify-content: space-around;
+                flex-direction: column;
             }
 
             @include respond-to('mobile') {
-                justify-content: space-around;
+                flex-direction: column;
             }
 
             h2 {
-            gap: 15px;
-            color: $text-color-blue;
-            font-size: $title-large;
+                gap: 15px;
+                color: $text-color-blue;
+                font-size: $title-large;
 
-            @include respond-to('middle') {
-                font-size: $text-middle;
-            }
+                @include respond-to('middle') {
+                    font-size: $text-middle;
+                }
 
-            @include respond-to('mobile') {
-                font-size: $text-mobile;
-            }
-
+                @include respond-to('mobile') {
+                    font-size: $text-mobile;
+                }
             }
         }
     }
 
-    .wrapper-img-restart {
-        width: 80px;
-        height: 65px;
-        background-image: url(../../../assets/pictures/beach-house.png);
-        background-size: contain;
-        background-repeat: no-repeat;
+    .img {
+        width: 70px;
+        height: 70px;
 
         @include respond-to('middle') {
             max-width: 40px;
@@ -110,16 +116,31 @@
         }
 
         @include respond-to('mobile') {
-            width: 40px;
-            height: 20px;
+            width: 25px;
+            height: 30px;
         }
     }
 
-    .wrapper-img-restart:hover {
+    .img:hover {
         filter: saturate(2);
     }
 }
 
+.active {
+    display: block;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 50% 0%;
+	}
+    50% {
+		background-position: 50% 100%;
+	}
+	100% {
+		background-position: 50% 0%;
+	}
+}
 
 
 // .game-page {

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,17 +11,16 @@
 <body>
     <section class="home-page">
         <div class="container">
-            <button class="btn-home btn-rules"> 
-                <div class="wrapper-img">
-                </div>
+            <button class="btn-home btn-rules">
+                <img src="assets/pictures/star.png" alt="картинка не загрузилась" class="img">
                 <span>How to play?</span>
             </button>
 
-            <button class="btn-home btn-start"> 
-                <div class="wrapper-img">
-                </div>
-            <span>Start Game!</span></button>
+            <button class="btn-home btn-start">
+                <img src="assets/pictures/star.png" alt="картинка не загрузилась" class="img">
+                <span>Start Game!</span></button>
         </div>
+
     </section>
 
     <section class="game-page">
@@ -28,58 +28,55 @@
             <div class="container-game">
                 <div class="field-wave"></div>
                 <div class="field-wave-2"></div>
-
-                <!-- <div class="modal"></div> -->
             </div>
-            
+
             <div class="container-calc">
-                <h1>Score: <span class="result-value">...</span></h1>
-                
+                <h1>Score: <span class="result-value">0</span></h1>
+
                 <div class="calc" id="calc">
                     <div class="calc__screen-container">
                         <input class="calc__screen" type="text" maxlength="15" placeholder="0">
                     </div>
-    
+
                     <div class="calc__btn-container">
-                        <button id="clear" class="btn btn_clear">Clear</button>
-                        <button id="enter" class="btn btn_enter">Enter</button>
-                        <button id="backspace" class="btn btn_backspace">Backspace</button>
-                        <button class="btn btn-num-1 digit">1</button>
-                        <button class="btn btn-num-2 digit">2</button>
-                        <button class="btn btn-num-3 digit">3</button>
-                        <button class="btn btn-num-4 digit">4</button>
-                        <button class="btn btn-num-5 digit">5</button>
-                        <button class="btn btn-num-6 digit">6</button>
-                        <button class="btn btn-num-7 digit">7</button>
-                        <button class="btn btn-num-8 digit">8</button>
-                        <button class="btn btn-num-9 digit">9</button>
-                        <button class="btn btn-num-0 digit">0</button>
+                        <button id="clear" class="btn btn_clear" data-func="clear"> Clear</button>
+                        <button id="enter" class="btn btn_enter" data-func="enter">Enter</button>
+                        <button id="backspace" class="btn btn_backspace" data-func="backspace">Backspace</button>
+                        <button class="btn btn-num-1 digit" data-value="1">1</button>
+                        <button class="btn btn-num-2 digit" data-value="2">2</button>
+                        <button class="btn btn-num-3 digit" data-value="3">3</button>
+                        <button class="btn btn-num-4 digit" data-value="4">4</button>
+                        <button class="btn btn-num-5 digit" data-value="5">5</button>
+                        <button class="btn btn-num-6 digit" data-value="6">6</button>
+                        <button class="btn btn-num-7 digit" data-value="7">7</button>
+                        <button class="btn btn-num-8 digit" data-value="8">8</button>
+                        <button class="btn btn-num-9 digit" data-value="9">9</button>
+                        <button class="btn btn-num-0 digit" data-value="0">0</button>
                     </div>
                 </div>
-
             </div>
 
-        </div> 
+        </div>
     </section>
 
     <section class="final-page">
         <div class="container">
-            <h1>Your score: <span class="result-game">...</span>
+            <h1>Your score: <span class="result-game">0</span>
                 <div class="wrapper-img-result">
                 </div>
             </h1>
             <div class="container-answers">
-                <h2>Correct answers: <span id="correct-answers">10</span></h2>
-                <h2>Wrong answers: <span id="wrong-answers">10</span></h2>
+                <h2>Correct answers: <span class="correct-answers">0</span></h2>
+                <h2>Wrong answers: <span class="wrong-answers">0</span></h2>
             </div>
 
-            <button class="btn-home btn-restart"> 
-                <div class="wrapper-img-restart">
-                </div>
-            <span>To the home page!</span></button>
+            <button class="btn-home btn-restart">
+                <img src="assets/pictures/beach-house.png" alt="картинка не загрузилась" class="img">
+                <span>To the home page!</span></button>
         </div>
-    </section> 
+    </section>
 
-    <script type="module" src="main.js"></script>
+    <script src="index.js"></script>
 </body>
+
 </html>

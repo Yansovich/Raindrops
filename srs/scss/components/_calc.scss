@@ -20,8 +20,8 @@
     .calc {
      padding: 10px;
      border: 1px solid $border-color-violet;
+     box-shadow: 1px 1px 20px 2px $border-color-violet;
      border-radius: 5px;
-     box-shadow: 0 0 15px $border-color-violet;
      display: flex;
      width: 300px;
      height: 350px;

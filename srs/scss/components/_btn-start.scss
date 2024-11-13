@@ -1,18 +1,20 @@
 .btn-home {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     height: 100px;
-    width: 280px;
+    width: 350px;
     padding: 10px;
+    margin: 0 20px;
     gap: 5px;
     font-family: inherit;
     font-size: $title-large;
     font-weight: 700;
     border: 1px solid $border-color-violet;
+    box-shadow: 1px 1px 20px 2px $border-color-violet;
     border-radius: 20px;
     color: $text-color-blue;
-    background: linear-gradient(360deg, #d3e46c,#e1ed94,#eff6ba);
+    background: linear-gradient(360deg, #a4db79,#e9ee73);
 
     &:active{
         transform: scale(0.9);
@@ -26,26 +28,21 @@
         transition-duration: 0.4s;
     }
 
-    .wrapper-img {
+    .img {
         width: 80px;
         height: 80px;
-        // border: 1px solid black ;
-        background-image: url(../../../assets/pictures/star.png);
-        background-size: contain;   
-        background-repeat: no-repeat;   
-
 
         @include respond-to('middle') {
-            max-width: 65px;
-            height: 65px;
+            max-width: 60px;
+            height: 60px;
         }
         @include respond-to('mobile') {
             width: 35px;
-            height: 25px;
+            height: 35px;
         }
     }
 
-    .wrapper-img:hover {
+    .img:hover {
         filter: saturate(1.5);
     }
 
@@ -55,9 +52,19 @@
         height: 65px;
     }
     @include respond-to('mobile') {
+        padding: 2px;
+        gap: 0;
+        justify-content: space-between;
         font-size: $text-mobile;
         max-width: 80px;
         height: 60px;
         border-radius: 15px;
+    }
+}
+
+.btn-restart {
+    // width: 250px;
+    @include respond-to('mobile') {
+        font-size: $sub-text-mobile;
     }
 }
